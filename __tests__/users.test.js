@@ -53,7 +53,7 @@ describe('backend routes', () => {
   it('should sign out a user', async () => {
     const [agent, user] = await registerAndLogin();
     await agent.delete('/api/v1/users/sessions');
-    expect(user).toEqual(null);
+    expect(user.cookie).toEqual(undefined);
   });
 
 });
