@@ -25,4 +25,11 @@ describe('backend routes', () => {
     });
   });
 
+  it('should allow user to log in', async () => {
+    const response = await request(app).post('/api/v1/users/sessions').send(fakeUser);
+    expect(response).toEqual({
+      message: 'signed in successful'
+    });
+  });
+
 });
