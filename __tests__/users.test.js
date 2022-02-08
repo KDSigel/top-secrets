@@ -26,8 +26,9 @@ describe('backend routes', () => {
   });
 
   it('should allow user to log in', async () => {
+    await request(app).post('/api/v1/users').send(fakeUser);
     const response = await request(app).post('/api/v1/users/sessions').send(fakeUser);
-    expect(response).toEqual({
+    expect(response.body).toEqual({
       message: 'signed in successful'
     });
   });
