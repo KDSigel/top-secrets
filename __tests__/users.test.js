@@ -51,9 +51,13 @@ describe('backend routes', () => {
   });
 
   it('should sign out a user', async () => {
-    const [agent, user] = await registerAndLogin();
-    await agent.delete('/api/v1/users/sessions');
-    expect(user.cookie).toEqual(undefined);
+    const [agent] = await registerAndLogin();
+    const response = await agent.delete('/api/v1/users/sessions');
+    expect(response.body.message).toEqual('no more secrets for you');
   });
+
+  // it('logged in user should be able to post a secret', async () => {
+  
+  // });
 
 });
