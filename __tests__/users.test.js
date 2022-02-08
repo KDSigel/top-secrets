@@ -29,7 +29,7 @@ describe('backend routes', () => {
     await request(app).post('/api/v1/users').send(fakeUser);
     const response = await request(app).post('/api/v1/users/sessions').send(fakeUser);
     expect(response.body).toEqual({
-      message: 'signed in successful'
+      message: 'you signed in, great job!'
     });
   });
 
