@@ -56,8 +56,6 @@ describe('backend routes', () => {
     expect(response.body.message).toEqual('no more secrets for you');
   });
 
-  // it('logged in user should be able to post a secret', async () => {
-  
-  // });
+
 
 });
