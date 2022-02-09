@@ -50,8 +50,9 @@ describe('backend routes', () => {
 
   it('logged in user can view all the secrets', async () => {
     const [agent] = await registerAndLogin();
-    const response = await agent.get('/api/v1/secrets').send(fakeSecret);
-    expect(response.body).toContainEqual([
+    await agent.post('/api/v1/secrets').send(fakeSecret);
+    const response = await agent.get('/api/v1/secrets');
+    expect(response.body).toEqual([
       {
         id: expect.any(String),
         title: 'title',
